@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'compressor',
 ]
 
 MIDDLEWARE = [
@@ -52,10 +53,16 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'Moviedb.urls'
 
+COMPRESS_ROOT = BASE_DIR / 'Movieapp/static'
+
+COMPRESS_ENABLED = True
+
+STATICFILES_FINDERS = ('compressor.finders.CompressorFinder',)
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'Movieapp/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
