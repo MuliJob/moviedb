@@ -23,7 +23,7 @@
     {% compress css %}
     <link rel="stylesheet" href="{% static 'css/output.css' %}">
     {% endcompress %}
-
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
 </head>
 
 <body class="bg-green-50">
@@ -125,10 +125,8 @@
       </div>
     </div>
   </nav>
-  <div class="container mx-auto mt-4">
       {% block content %}
       {% endblock content %}
-  </div>
   <footer class="p-4 bg-white sm:p-6 dark:bg-gray-800">
     <div class="mx-auto max-w-screen-xl">
         <div class="md:flex md:justify-between">
@@ -198,6 +196,10 @@
         </div>
     </div>
   </footer>
+
+  <div id="preloader"></div>
+
   <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
+  <script src="{% static 'js/main.js' %}"></script>
 </body>
 </html>
