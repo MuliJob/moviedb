@@ -215,30 +215,24 @@
     let timer;
 
     window.addEventListener('scroll', function() {
-      clearTimeout(timer); // Reset the timer on each scroll
+      clearTimeout(timer);
 
       const navbar = document.getElementById('navbar');
       if (!navbar) {
-        console.error("Navbar element with ID 'navbar' not found.");
         return;
       }
 
       let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-      console.log("Current scroll position:", scrollTop);
 
       if (scrollTop > lastScrollTop) {
-        // Start a delay before hiding navbar if scrolling down
         timer = setTimeout(() => {
-          console.log("Hiding navbar");
           navbar.classList.add('hidden-nav');
-        }, 3000); // Adjust delay as needed
+        }, 3000);
       } else {
-        // Show navbar when scrolling up
-        console.log("Showing navbar");
         navbar.classList.remove('hidden-nav');
       }
       
-      lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
+      lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
     });
   </script>
 
