@@ -1,13 +1,37 @@
-{% extends 'base.html' %}
-{% load static %}
-{% block content %}
+{% extends 'base.html' %} {% load static %} {% block content %}
 <style>
   #hero-image {
-    background-image: url('{% static "img/48714892-d755-4a8a-a5f3-86f51386c1e8.sized-1000x1000.jpg" %}'); 
-    background-repeat: no-repeat; 
-    background-size: cover; 
-    background-position: center; 
+    background-image: url('{% static "img/48714892-d755-4a8a-a5f3-86f51386c1e8.sized-1000x1000.jpg" %}');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
     background-attachment: fixed;
+  }
+  #trailer-bg {
+    background-image: url('{% static "img/background.jpg" %}');
+  }
+
+  .overflow-x-auto::-webkit-scrollbar {
+    height: 8px;
+  }
+
+  .overflow-x-auto::-webkit-scrollbar-track {
+    background: #2d3748;
+    border-radius: 4px;
+  }
+
+  .overflow-x-auto::-webkit-scrollbar-thumb {
+    background: #4a5568;
+    border-radius: 4px;
+  }
+
+  .overflow-x-auto::-webkit-scrollbar-thumb:hover {
+    background: #718096;
+  }
+
+  .overflow-x-auto {
+    scrollbar-width: thin;
+    scrollbar-color: #4a5568 #2d3748;
   }
 </style>
 <body class="bg-cover bg-center text-white" id="hero-image">
@@ -19,36 +43,668 @@
         <a  href="{% url 'register'%}" class="bg-blue-600 hover:bg-blue-700 px-6 py-2 rounded-r-lg text-white font-semibold">Get Started</a>
       </div>
     <!-- Featured Section -->
+  <div
+    class="bg-black bg-opacity-80 min-h-screen flex flex-col items-center"
+  >
+  <div data-aos="zoom-out" data-aos-delay="100">
+    <h2 class="text-5xl md:text-6xl font-bold mb-6 mt-20 text-white">
+      Unlimited Movies, TV Shows, and More
+    </h2>
+    <p class="text-lg md:text-xl mb-8 text-white">
+      Watch anywhere, cancel anytime. Ready to watch? Enter your email to create
+      or restart your membership.
+    </p>
+  </div>
+  <div class="flex items-center" data-aos="zoom-out" data-aos-delay="100">
+    <input
+      type="email"
+      placeholder="Email address"
+      class="px-4 py-2 text-black rounded-l-lg w-64 md:w-96"
+    />
+    <button
+      class="bg-blue-600 hover:bg-blue-700 px-6 py-2 rounded-r-lg text-white font-semibold"
+    >
+      Get Started
+    </button>
+  </div>
     <section class="w-full px-10 py-20">
-      <h3 class="text-3xl font-bold mb-6 text-white">Top Picks For You</h3>
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-        <!-- Movie Cards -->
-        <div class="bg-gray-800 rounded-lg overflow-hidden">
-          <img src="{% static 'img/mad-max-fury-road-movie-posters.jpg' %}" alt="Movie Poster" class="w-full h-64 object-cover transform transition-transform duration-300 hover:scale-105">
-          <div class="p-4">
-            <h4 class="font-semibold text-xl">Mad Max</h4>
-            <p class="text-gray-300">2024 | Action, Adventure</p>
+      <div class="flex items-center space-x-4 mb-6" data-aos="fade-up" data-aos-delay="200">
+        <h3 class="text-3xl font-bold text-white">Trending</h3>
+        <div
+          data-toggle-id="trending"
+          class="toggle-container relative flex items-center rounded-full overflow-hidden w-40 h-10 border-2 border-green-200"
+        >
+          <div
+            class="absolute left-0 top-0 h-full w-1/2 bg-blue-600 rounded-full transform transition-transform duration-300 z-0"
+            id="slider"
+          ></div>
+          <a
+            href=""
+            class="relative z-10 flex-1 h-full text-sm font-medium transition-colors duration-300 focus:outline-none flex items-center justify-center text-white"
+            id="leftBtn"
+          >
+            Today
+          </a>
+          <a
+            href=""
+            class="relative z-10 flex-1 h-full text-sm font-medium transition-colors text-white duration-300 focus:outline-none flex items-center justify-center"
+            id="rightBtn"
+          >
+            This Week
+          </a>
+        </div>
+      </div>
+      <div class="relative w-full" data-aos="fade-up" data-aos-delay="300">
+        <div class="flex gap-6 overflow-x-auto pb-4" data-aos="fade-up" data-aos-delay="400">
+          <div class="flex-none inline-flex flex-col items-center">
+            <div class="bg-gray-800 rounded-lg overflow-hidden w-48">
+              <img
+                src="{% static 'img/mad-max-fury-road-movie-posters.jpg' %}"
+                alt="Movie Poster"
+                class="w-full h-64 object-cover transform transition-transform duration-300 hover:scale-105"
+              />
+            </div>
+            <h4 class="font-semibold text-lg mt-2 text-center text-white">
+              Mad Max
+            </h4>
+            <p class="text-gray-300 text-sm text-center">
+              2024 | Action, Adventure
+            </p>
+          </div>
+
+          <div class="flex-none inline-flex flex-col items-center">
+            <div class="bg-gray-800 rounded-lg overflow-hidden w-48">
+              <img
+                src="{% static 'img/wp1934740.jpg' %}"
+                alt="Movie Poster"
+                class="w-full h-64 object-cover transform transition-transform duration-300 hover:scale-105"
+              />
+            </div>
+            <h4 class="font-semibold text-lg mt-2 text-center text-white">
+              The Dark Knight
+            </h4>
+            <p class="text-gray-300 text-sm text-center">
+              2024 | Action, Adventure
+            </p>
+          </div>
+
+          <div class="flex-none inline-flex flex-col items-center">
+            <div class="bg-gray-800 rounded-lg overflow-hidden w-48">
+              <img
+                src="{% static 'img/48715.jpg' %}"
+                alt="Movie Poster"
+                class="w-full h-64 object-cover transform transition-transform duration-300 hover:scale-105"
+              />
+            </div>
+            <h4 class="font-semibold text-lg mt-2 text-center text-white">
+              Black Panther
+            </h4>
+            <p class="text-gray-300 text-sm text-center">
+              2024 | Sci-Fi, Adventure
+            </p>
+          </div>
+
+          <div class="flex-none inline-flex flex-col items-center">
+            <div class="bg-gray-800 rounded-lg overflow-hidden w-48">
+              <img
+                src="{% static 'img/share-1.webp' %}"
+                alt="Movie Poster"
+                class="w-full h-64 object-cover transform transition-transform duration-300 hover:scale-105"
+              />
+            </div>
+            <h4 class="font-semibold text-lg mt-2 text-center text-white">
+              Avengers Infinity War
+            </h4>
+            <p class="text-gray-300 text-sm text-center">
+              2024 | Sci-Fi, Adventure
+            </p>
+          </div>
+
+          <div class="flex-none inline-flex flex-col items-center">
+            <div class="bg-gray-800 rounded-lg overflow-hidden w-48">
+              <img
+                src="{% static 'img/share-1.webp' %}"
+                alt="Movie Poster"
+                class="w-full h-64 object-cover transform transition-transform duration-300 hover:scale-105"
+              />
+            </div>
+            <h4 class="font-semibold text-lg mt-2 text-center text-white">
+              Avengers Infinity War
+            </h4>
+            <p class="text-gray-300 text-sm text-center">
+              2024 | Sci-Fi, Adventure
+            </p>
+          </div>
+
+          <div class="flex-none inline-flex flex-col items-center">
+            <div class="bg-gray-800 rounded-lg overflow-hidden w-48">
+              <img
+                src="{% static 'img/share-1.webp' %}"
+                alt="Movie Poster"
+                class="w-full h-64 object-cover transform transition-transform duration-300 hover:scale-105"
+              />
+            </div>
+            <h4 class="font-semibold text-lg mt-2 text-center text-white">
+              Avengers Infinity War
+            </h4>
+            <p class="text-gray-300 text-sm text-center">
+              2024 | Sci-Fi, Adventure
+            </p>
+          </div>
+
+          <div class="flex-none inline-flex flex-col items-center">
+            <div class="bg-gray-800 rounded-lg overflow-hidden w-48">
+              <img
+                src="{% static 'img/share-1.webp' %}"
+                alt="Movie Poster"
+                class="w-full h-64 object-cover transform transition-transform duration-300 hover:scale-105"
+              />
+            </div>
+            <h4 class="font-semibold text-lg mt-2 text-center text-white">
+              Avengers Infinity War
+            </h4>
+            <p class="text-gray-300 text-sm text-center">
+              2024 | Sci-Fi, Adventure
+            </p>
+          </div>
+
+          <div class="flex-none inline-flex flex-col items-center">
+            <div class="bg-gray-800 rounded-lg overflow-hidden w-48">
+              <img
+                src="{% static 'img/share-1.webp' %}"
+                alt="Movie Poster"
+                class="w-full h-64 object-cover transform transition-transform duration-300 hover:scale-105"
+              />
+            </div>
+            <h4 class="font-semibold text-lg mt-2 text-center text-white">
+              Avengers Infinity War
+            </h4>
+            <p class="text-gray-300 text-sm text-center">
+              2024 | Sci-Fi, Adventure
+            </p>
           </div>
         </div>
-        <div class="bg-gray-800 rounded-lg overflow-hidden">
-          <img src="{% static 'img/wp1934740.jpg' %}" alt="Movie Poster" class="w-full h-64 object-cover transform transition-transform duration-300 hover:scale-105">
-          <div class="p-4">
-            <h4 class="font-semibold text-xl">The Dark Knight</h4>
-            <p class="text-gray-300">2024 | Action, Adventure</p>
+      </div>
+    </section>
+
+    <section class="w-full px-10 py-5 relative bg-cover bg-center" id="trailer-bg" data-aos="fade-up" data-aos-delay="300">
+      <div class="absolute inset-0 bg-gray-700 bg-opacity-80"></div>
+      <div class="relative z-10">
+        <div class="flex items-center space-x-4 mb-6" data-aos="fade-up" data-aos-delay="300">
+          <h3 class="text-3xl font-bold text-white">Latest Trailers</h3>
+          <div
+            data-toggle-id="trailers"
+            class="toggle-container relative flex items-center rounded-full overflow-hidden w-80 h-10 border-2 border-green-200"
+          >
+            <div
+              class="absolute left-0 top-0 h-full w-1/4 bg-blue-600 rounded-full transform transition-transform duration-300 z-0"
+              id="slider"
+            ></div>
+            <a
+              href=""
+              class="relative z-10 flex-1 h-full text-sm font-medium transition-colors duration-300 focus:outline-none flex items-center justify-center text-white"
+              id="leftBtn"
+            >
+              Popular
+            </a>
+            <a
+              href=""
+              class="relative z-10 flex-1 h-full text-sm font-medium transition-colors text-white duration-300 focus:outline-none flex items-center justify-center"
+              id="rightBtn"
+            >
+              Streaming
+            </a>
+            <a
+              href=""
+              class="relative z-10 flex-1 h-full text-sm font-medium transition-colors text-white duration-300 focus:outline-none flex items-center justify-center"
+              id="rightBtn"
+            >
+              On TV
+            </a>
+            <a
+              href=""
+              class="relative z-10 flex-1 h-full text-sm font-medium transition-colors text-white duration-300 focus:outline-none flex items-center justify-center"
+              id="rightBtn"
+            >
+              In Theatres
+            </a>
           </div>
         </div>
-        <div class="bg-gray-800 rounded-lg overflow-hidden">
-          <img src="{% static 'img/48715.jpg' %}" alt="Movie Poster" class="w-full h-64 object-cover transform transition-transform duration-300 hover:scale-105">
-          <div class="p-4">
-            <h4 class="font-semibold text-xl">Black Panther</h4>
-            <p class="text-gray-300">2024 | Sci-Fi, Adventure</p>
+    
+        <div class="overflow-x-auto pb-4" data-aos="fade-up" data-aos-delay="500">
+          <div class="flex space-x-6 min-w-max">
+            <div class="flex-none w-72">
+              <div class="flex flex-col items-center">
+                <div class="group bg-gray-800 rounded-3xl overflow-hidden transform transition-transform duration-300 hover:scale-105 w-full">
+                  <div class="relative">
+                    <img src="{% static 'img/squidgame.jpg' %}" alt="Video Thumbnail" class="w-full h-56 object-cover"/>
+                    <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <button class="text-white text-3xl transform transition-transform duration-300 group-hover:scale-125">
+                        <svg style="width: 90px; height: 90px" class="text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                          <path fill-rule="evenodd" d="M8.6 5.2A1 1 0 0 0 7 6v12a1 1 0 0 0 1.6.8l8-6a1 1 0 0 0 0-1.6l-8-6Z" clip-rule="evenodd"/>
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div class="text-center mt-3">
+                  <h4 class="font-semibold text-xl text-white">Squid Game 2</h4>
+                  <p class="text-gray-300">Series, Thriller</p>
+                </div>
+              </div>
+            </div>
+    
+            <div class="flex-none w-72">
+              <div class="flex flex-col items-center">
+                <div class="group bg-gray-800 rounded-3xl overflow-hidden transform transition-transform duration-300 hover:scale-105 w-full">
+                  <div class="relative">
+                    <img src="{% static 'img/outerbanks.jpg' %}" alt="Video Thumbnail" class="w-full h-56 object-cover"/>
+                    <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <button class="text-white text-3xl transform transition-transform duration-300 group-hover:scale-125">
+                        <svg style="width: 90px; height: 90px" class="text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                          <path fill-rule="evenodd" d="M8.6 5.2A1 1 0 0 0 7 6v12a1 1 0 0 0 1.6.8l8-6a1 1 0 0 0 0-1.6l-8-6Z" clip-rule="evenodd"/>
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div class="text-center mt-3">
+                  <h4 class="font-semibold text-xl text-white">Outer Banks</h4>
+                  <p class="text-gray-300">Season 4 Part 2 Official Trailer</p>
+                </div>
+              </div>
+            </div>
+    
+            <div class="flex-none w-72">
+              <div class="flex flex-col items-center">
+                <div class="group bg-gray-800 rounded-3xl overflow-hidden transform transition-transform duration-300 hover:scale-105 w-full">
+                  <div class="relative">
+                    <img src="{% static 'img/gladiator.webp' %}" alt="Video Thumbnail" class="w-full h-56 object-cover"/>
+                    <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <button class="text-white text-3xl transform transition-transform duration-300 group-hover:scale-125">
+                        <svg style="width: 90px; height: 90px" class="text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                          <path fill-rule="evenodd" d="M8.6 5.2A1 1 0 0 0 7 6v12a1 1 0 0 0 1.6.8l8-6a1 1 0 0 0 0-1.6l-8-6Z" clip-rule="evenodd"/>
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div class="text-center mt-3">
+                  <h4 class="font-semibold text-xl text-white">Gladiator II</h4>
+                  <p class="text-gray-300">Rage can be a gift</p>
+                </div>
+              </div>
+            </div>
+    
+            <div class="flex-none w-72">
+              <div class="flex flex-col items-center">
+                <div class="group bg-gray-800 rounded-3xl overflow-hidden transform transition-transform duration-300 hover:scale-105 w-full">
+                  <div class="relative">
+                    <img src="{% static 'img/moana2.webp' %}" alt="Video Thumbnail" class="w-full h-56 object-cover"/>
+                    <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <button class="text-white text-3xl transform transition-transform duration-300 group-hover:scale-125">
+                        <svg style="width: 90px; height: 90px" class="text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                          <path fill-rule="evenodd" d="M8.6 5.2A1 1 0 0 0 7 6v12a1 1 0 0 0 1.6.8l8-6a1 1 0 0 0 0-1.6l-8-6Z" clip-rule="evenodd"/>
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div class="text-center mt-3">
+                  <h4 class="font-semibold text-xl text-white">Moana 2</h4>
+                  <p class="text-gray-300">Animation, Adventure</p>
+                </div>
+              </div>
+            </div>
+    
+            <div class="flex-none w-72">
+              <div class="flex flex-col items-center">
+                <div class="group bg-gray-800 rounded-3xl overflow-hidden transform transition-transform duration-300 hover:scale-105 w-full">
+                  <div class="relative">
+                    <img src="{% static 'img/squidgame.jpg' %}" alt="Video Thumbnail" class="w-full h-56 object-cover"/>
+                    <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <button class="text-white text-3xl transform transition-transform duration-300 group-hover:scale-125">
+                        <svg style="width: 90px; height: 90px" class="text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                          <path fill-rule="evenodd" d="M8.6 5.2A1 1 0 0 0 7 6v12a1 1 0 0 0 1.6.8l8-6a1 1 0 0 0 0-1.6l-8-6Z" clip-rule="evenodd"/>
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div class="text-center mt-3">
+                  <h4 class="font-semibold text-xl text-white">Squid Game 1</h4>
+                  <p class="text-gray-300">Action, Adventure</p>
+                </div>
+              </div>
+            </div>
+    
           </div>
         </div>
-        <div class="bg-gray-800 rounded-lg overflow-hidden">
-          <img src="{% static 'img/share-1.webp' %}" alt="Movie Poster" class="w-full h-64 object-cover transform transition-transform duration-300 hover:scale-105">
-          <div class="p-4">
-            <h4 class="font-semibold text-xl">Avengers Infinity War</h4>
-            <p class="text-gray-300">2024 | Sci-Fi, Adventure</p>
+      </div>
+    </section>
+
+    <section class="w-full px-10 py-10">
+      <div class="flex items-center space-x-4 mb-6" data-aos="fade-up" data-aos-delay="400">
+        <h3 class="text-3xl font-bold text-white">What's Popular</h3>
+        <div
+          data-toggle-id="trending"
+          class="toggle-container relative flex items-center rounded-full overflow-hidden w-60 h-10 border-2 border-green-200"
+        >
+          <div
+            class="absolute left-0 top-0 h-full w-1/3 bg-blue-600 rounded-full transform transition-transform duration-300 z-0"
+            id="slider"
+          ></div>
+          <a
+            href=""
+            class="relative z-10 flex-1 h-full text-sm font-medium transition-colors duration-300 focus:outline-none flex items-center justify-center text-white"
+            id="leftBtn"
+          >
+            Streaming
+          </a>
+          <a
+            href=""
+            class="relative z-10 flex-1 h-full text-sm font-medium transition-colors text-white duration-300 focus:outline-none flex items-center justify-center"
+            id="rightBtn"
+          >
+            On TV
+          </a>
+          <a
+            href=""
+            class="relative z-10 flex-1 h-full text-sm font-medium transition-colors text-white duration-300 focus:outline-none flex items-center justify-center"
+            id="rightBtn"
+          >
+            In Theatres
+          </a>
+        </div>
+      </div>
+      <div class="relative w-full" data-aos="fade-up" data-aos-delay="600">
+        <div class="flex gap-6 overflow-x-auto pb-4">
+          <div class="flex-none inline-flex flex-col items-center">
+            <div class="bg-gray-800 rounded-lg overflow-hidden w-48">
+              <img
+                src="{% static 'img/mad-max-fury-road-movie-posters.jpg' %}"
+                alt="Movie Poster"
+                class="w-full h-64 object-cover transform transition-transform duration-300 hover:scale-105"
+              />
+            </div>
+            <h4 class="font-semibold text-lg mt-2 text-center text-white">
+              Mad Max
+            </h4>
+            <p class="text-gray-300 text-sm text-center">
+              2024 | Action, Adventure
+            </p>
+          </div>
+
+          <div class="flex-none inline-flex flex-col items-center">
+            <div class="bg-gray-800 rounded-lg overflow-hidden w-48">
+              <img
+                src="{% static 'img/wp1934740.jpg' %}"
+                alt="Movie Poster"
+                class="w-full h-64 object-cover transform transition-transform duration-300 hover:scale-105"
+              />
+            </div>
+            <h4 class="font-semibold text-lg mt-2 text-center text-white">
+              The Dark Knight
+            </h4>
+            <p class="text-gray-300 text-sm text-center">
+              2024 | Action, Adventure
+            </p>
+          </div>
+
+          <div class="flex-none inline-flex flex-col items-center">
+            <div class="bg-gray-800 rounded-lg overflow-hidden w-48">
+              <img
+                src="{% static 'img/48715.jpg' %}"
+                alt="Movie Poster"
+                class="w-full h-64 object-cover transform transition-transform duration-300 hover:scale-105"
+              />
+            </div>
+            <h4 class="font-semibold text-lg mt-2 text-center text-white">
+              Black Panther
+            </h4>
+            <p class="text-gray-300 text-sm text-center">
+              2024 | Sci-Fi, Adventure
+            </p>
+          </div>
+
+          <div class="flex-none inline-flex flex-col items-center">
+            <div class="bg-gray-800 rounded-lg overflow-hidden w-48">
+              <img
+                src="{% static 'img/share-1.webp' %}"
+                alt="Movie Poster"
+                class="w-full h-64 object-cover transform transition-transform duration-300 hover:scale-105"
+              />
+            </div>
+            <h4 class="font-semibold text-lg mt-2 text-center text-white">
+              Avengers Infinity War
+            </h4>
+            <p class="text-gray-300 text-sm text-center">
+              2024 | Sci-Fi, Adventure
+            </p>
+          </div>
+
+          <div class="flex-none inline-flex flex-col items-center">
+            <div class="bg-gray-800 rounded-lg overflow-hidden w-48">
+              <img
+                src="{% static 'img/share-1.webp' %}"
+                alt="Movie Poster"
+                class="w-full h-64 object-cover transform transition-transform duration-300 hover:scale-105"
+              />
+            </div>
+            <h4 class="font-semibold text-lg mt-2 text-center text-white">
+              Avengers Infinity War
+            </h4>
+            <p class="text-gray-300 text-sm text-center">
+              2024 | Sci-Fi, Adventure
+            </p>
+          </div>
+
+          <div class="flex-none inline-flex flex-col items-center">
+            <div class="bg-gray-800 rounded-lg overflow-hidden w-48">
+              <img
+                src="{% static 'img/share-1.webp' %}"
+                alt="Movie Poster"
+                class="w-full h-64 object-cover transform transition-transform duration-300 hover:scale-105"
+              />
+            </div>
+            <h4 class="font-semibold text-lg mt-2 text-center text-white">
+              Avengers Infinity War
+            </h4>
+            <p class="text-gray-300 text-sm text-center">
+              2024 | Sci-Fi, Adventure
+            </p>
+          </div>
+
+          <div class="flex-none inline-flex flex-col items-center">
+            <div class="bg-gray-800 rounded-lg overflow-hidden w-48">
+              <img
+                src="{% static 'img/share-1.webp' %}"
+                alt="Movie Poster"
+                class="w-full h-64 object-cover transform transition-transform duration-300 hover:scale-105"
+              />
+            </div>
+            <h4 class="font-semibold text-lg mt-2 text-center text-white">
+              Avengers Infinity War
+            </h4>
+            <p class="text-gray-300 text-sm text-center">
+              2024 | Sci-Fi, Adventure
+            </p>
+          </div>
+
+          <div class="flex-none inline-flex flex-col items-center">
+            <div class="bg-gray-800 rounded-lg overflow-hidden w-48">
+              <img
+                src="{% static 'img/share-1.webp' %}"
+                alt="Movie Poster"
+                class="w-full h-64 object-cover transform transition-transform duration-300 hover:scale-105"
+              />
+            </div>
+            <h4 class="font-semibold text-lg mt-2 text-center text-white">
+              Avengers Infinity War
+            </h4>
+            <p class="text-gray-300 text-sm text-center">
+              2024 | Sci-Fi, Adventure
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="w-full px-10 py-5">
+      <div class="flex items-center space-x-4 mb-6" data-aos="fade-up" data-aos-delay="500">
+        <h3 class="text-3xl font-bold text-white">Free To Watch</h3>
+        <div
+          data-toggle-id="trending"
+          class="toggle-container relative flex items-center rounded-full overflow-hidden w-40 h-10 border-2 border-green-200"
+        >
+          <div
+            class="absolute left-0 top-0 h-full w-1/2 bg-blue-600 rounded-full transform transition-transform duration-300 z-0"
+            id="slider"
+          ></div>
+          <a
+            href=""
+            class="relative z-10 flex-1 h-full text-sm font-medium transition-colors duration-300 focus:outline-none flex items-center justify-center text-white"
+            id="leftBtn"
+          >
+            Movies
+          </a>
+          <a
+            href=""
+            class="relative z-10 flex-1 h-full text-sm font-medium transition-colors text-white duration-300 focus:outline-none flex items-center justify-center"
+            id="rightBtn"
+          >
+            TV
+          </a>
+        </div>
+      </div>
+      <div class="relative w-full" data-aos="fade-up" data-aos-delay="700">
+        <div class="flex gap-6 overflow-x-auto pb-4">
+          <div class="flex-none inline-flex flex-col items-center">
+            <div class="bg-gray-800 rounded-lg overflow-hidden w-48">
+              <img
+                src="{% static 'img/mad-max-fury-road-movie-posters.jpg' %}"
+                alt="Movie Poster"
+                class="w-full h-64 object-cover transform transition-transform duration-300 hover:scale-105"
+              />
+            </div>
+            <h4 class="font-semibold text-lg mt-2 text-center text-white">
+              Mad Max
+            </h4>
+            <p class="text-gray-300 text-sm text-center">
+              2024 | Action, Adventure
+            </p>
+          </div>
+
+          <div class="flex-none inline-flex flex-col items-center">
+            <div class="bg-gray-800 rounded-lg overflow-hidden w-48">
+              <img
+                src="{% static 'img/wp1934740.jpg' %}"
+                alt="Movie Poster"
+                class="w-full h-64 object-cover transform transition-transform duration-300 hover:scale-105"
+              />
+            </div>
+            <h4 class="font-semibold text-lg mt-2 text-center text-white">
+              The Dark Knight
+            </h4>
+            <p class="text-gray-300 text-sm text-center">
+              2024 | Action, Adventure
+            </p>
+          </div>
+
+          <div class="flex-none inline-flex flex-col items-center">
+            <div class="bg-gray-800 rounded-lg overflow-hidden w-48">
+              <img
+                src="{% static 'img/48715.jpg' %}"
+                alt="Movie Poster"
+                class="w-full h-64 object-cover transform transition-transform duration-300 hover:scale-105"
+              />
+            </div>
+            <h4 class="font-semibold text-lg mt-2 text-center text-white">
+              Black Panther
+            </h4>
+            <p class="text-gray-300 text-sm text-center">
+              2024 | Sci-Fi, Adventure
+            </p>
+          </div>
+
+          <div class="flex-none inline-flex flex-col items-center">
+            <div class="bg-gray-800 rounded-lg overflow-hidden w-48">
+              <img
+                src="{% static 'img/share-1.webp' %}"
+                alt="Movie Poster"
+                class="w-full h-64 object-cover transform transition-transform duration-300 hover:scale-105"
+              />
+            </div>
+            <h4 class="font-semibold text-lg mt-2 text-center text-white">
+              Avengers Infinity War
+            </h4>
+            <p class="text-gray-300 text-sm text-center">
+              2024 | Sci-Fi, Adventure
+            </p>
+          </div>
+
+          <div class="flex-none inline-flex flex-col items-center">
+            <div class="bg-gray-800 rounded-lg overflow-hidden w-48">
+              <img
+                src="{% static 'img/share-1.webp' %}"
+                alt="Movie Poster"
+                class="w-full h-64 object-cover transform transition-transform duration-300 hover:scale-105"
+              />
+            </div>
+            <h4 class="font-semibold text-lg mt-2 text-center text-white">
+              Avengers Infinity War
+            </h4>
+            <p class="text-gray-300 text-sm text-center">
+              2024 | Sci-Fi, Adventure
+            </p>
+          </div>
+
+          <div class="flex-none inline-flex flex-col items-center">
+            <div class="bg-gray-800 rounded-lg overflow-hidden w-48">
+              <img
+                src="{% static 'img/share-1.webp' %}"
+                alt="Movie Poster"
+                class="w-full h-64 object-cover transform transition-transform duration-300 hover:scale-105"
+              />
+            </div>
+            <h4 class="font-semibold text-lg mt-2 text-center text-white">
+              Avengers Infinity War
+            </h4>
+            <p class="text-gray-300 text-sm text-center">
+              2024 | Sci-Fi, Adventure
+            </p>
+          </div>
+
+          <div class="flex-none inline-flex flex-col items-center">
+            <div class="bg-gray-800 rounded-lg overflow-hidden w-48">
+              <img
+                src="{% static 'img/share-1.webp' %}"
+                alt="Movie Poster"
+                class="w-full h-64 object-cover transform transition-transform duration-300 hover:scale-105"
+              />
+            </div>
+            <h4 class="font-semibold text-lg mt-2 text-center text-white">
+              Avengers Infinity War
+            </h4>
+            <p class="text-gray-300 text-sm text-center">
+              2024 | Sci-Fi, Adventure
+            </p>
+          </div>
+
+          <div class="flex-none inline-flex flex-col items-center">
+            <div class="bg-gray-800 rounded-lg overflow-hidden w-48">
+              <img
+                src="{% static 'img/share-1.webp' %}"
+                alt="Movie Poster"
+                class="w-full h-64 object-cover transform transition-transform duration-300 hover:scale-105"
+              />
+            </div>
+            <h4 class="font-semibold text-lg mt-2 text-center text-white">
+              Avengers Infinity War
+            </h4>
+            <p class="text-gray-300 text-sm text-center">
+              2024 | Sci-Fi, Adventure
+            </p>
           </div>
         </div>
       </div>

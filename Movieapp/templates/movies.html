@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="min-h-screen bg-green-50">
+  <header class="bg-blue-800 text-white p-4 flex items-center justify-between">
+      <h1 class="text-xl font-bold">Movie Database Dashboard</h1>
+      <button class="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-lg">
+          Logout
+      </button>
+  </header>
+
+  <div class="flex">
+      <main class="flex-1 p-6">
+          <section class="mb-8">
+              <h2 class="text-2xl font-semibold mb-4">Dashboard Overview</h2>
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  <div class="bg-white p-4 rounded-lg shadow-md">
+                      <h3 class="text-lg font-semibold">Total Movies</h3>
+                      <p class="text-3xl font-bold text-blue-600">123</p>
+                  </div>
+                  <div class="bg-white p-4 rounded-lg shadow-md">
+                      <h3 class="text-lg font-semibold">Total Actors</h3>
+                      <p class="text-3xl font-bold text-green-600">45</p>
+                  </div>
+                  <div class="bg-white p-4 rounded-lg shadow-md">
+                      <h3 class="text-lg font-semibold">Total Directors</h3>
+                      <p class="text-3xl font-bold text-purple-600">30</p>
+                  </div>
+              </div>
+          </section>
+
+          <section class="bg-white p-6 rounded-lg shadow-md">
+              <h2 class="text-xl font-semibold mb-4">Recent Movies</h2>
+              <div class="overflow-auto">
+                  <table class="w-full text-left">
+                      <thead>
+                          <tr class="text-gray-700">
+                              <th class="px-4 py-2">Title</th>
+                              <th class="px-4 py-2">Genre</th>
+                              <th class="px-4 py-2">Release Date</th>
+                              <th class="px-4 py-2">Rating</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                          <tr class="bg-gray-100 hover:bg-gray-200">
+                              <td class="px-4 py-2">Inception</td>
+                              <td class="px-4 py-2">Sci-Fi</td>
+                              <td class="px-4 py-2">2010</td>
+                              <td class="px-4 py-2">8.8</td>
+                          </tr>
+                      </tbody>
+                  </table>
+              </div>
+          </section>
+      </main>    
+  </div>
+</div>
+{% endblock content %}
